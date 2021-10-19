@@ -7,15 +7,19 @@ import {
 } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/Home';
-import Post from './pages/Post'
+import Upload from './pages/Upload'
+import LookAlikes from './pages/LookAlikes'
 
 export default function App() {
 
   return (
       <Router>
         <Switch>
-          <Route path="/post">
-            <Post />
+          <Route path="/lookalikes">
+            <LookAlikes />
+          </Route>
+          <Route path="/upload">
+            <Upload />
           </Route>
           <Route exact path="/">
             <Home />

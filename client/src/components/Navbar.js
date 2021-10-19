@@ -14,7 +14,7 @@ export default function Navbar() {
                         <Link to='/'><h3>Home</h3></Link>
                     </div>
                     <div className="col-6">
-                        <Link to='/post'><h3>New Post</h3></Link>
+                        <Link to='/upload'><h3>New look alike</h3></Link>
                     </div>
                 </div>
             </div>

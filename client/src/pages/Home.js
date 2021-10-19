@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-import Posts from '../components/Posts'
+import LookAlikes from '../components/LookAlikesDisplay'
 
 
 export default function Home() {
@@ -9,7 +9,7 @@ export default function Home() {
     return (
         <div>
             <Navbar />
-            <Posts />
+            <LookAlikes />
         </div>
     )
 }

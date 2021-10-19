@@ -1,10 +1,10 @@
-DROP DATABASE IF EXISTS template;
-CREATE DATABASE template;
+DROP DATABASE IF EXISTS lookalotalike;
+CREATE DATABASE lookalotalike;
 
-USE template;
+USE lookalotalike;
 
-CREATE TABLE statements (
+CREATE TABLE lookalikes (
     id INTEGER NOT NULL AUTO_INCREMENT,
-    name TEXT NOT NULL,
-    post TEXT NOT NULL,
+    caption TEXT NOT NULL,
+    url TEXT NOT NULL,
 );

@@ -1,8 +1,8 @@
 import React from 'react'
-import PostForm from '../components/PostForm'
+import UploadForm from '../components/UploadForm'
 import Navbar from '../components/Navbar.js'
 
-export default function Ask() {
+export default function Upload() {
 
     return (
         <>
@@ -12,7 +12,7 @@ export default function Ask() {
                     <div className='col-4'>
                     </div>
                     <div className='col-4'>
-                        <PostForm />
+                        <UploadForm />
                     </div>
                     <div className='col-4'>
                     </div>

@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import SampleApp from './SampleApp';
+import LookALotAlikeApp from './LookALotAlikeApp';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
     <React.StrictMode>
-      <SampleApp />
+      <LookALotAlikeApp />
     </React.StrictMode>,
   document.getElementById('root')
 );

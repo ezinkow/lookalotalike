@@ -1,0 +1,13 @@
+img {
+    width: 200px;
+    height: 200px;
+    padding: 0px 10px 0px 10px;
+}
+
+.caption{
+    text-align: center;
+}
+
+.score{
+    text-align: center;
+}
