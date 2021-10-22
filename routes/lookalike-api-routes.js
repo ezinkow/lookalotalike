@@ -37,15 +37,28 @@ module.exports = function (app) {
             })
     })
 
-    // Delete lookalike
-    app.delete("/api/lookalike/:id", function(req, res) {
-        LookAlike.destroy({
-          where: {
-            id: req.params.id
-          }
-        }).then(function() {
-          res.end();
+    // Update score
+    app.put("/api/lookalike/:id", function (req, res) {
+        LookAlike.update({
+            score: req.body.score
+        }, {
+            where: {
+                id: req.params.id
+            }
+        }).then(function () {
+            res.end();
         });
-      });
+    })
+
+    // Delete lookalike
+    app.delete("/api/lookalike/:id", function (req, res) {
+        LookAlike.destroy({
+            where: {
+                id: req.params.id
+            }
+        }).then(function () {
+            res.end();
+        });
+    });
 
 }

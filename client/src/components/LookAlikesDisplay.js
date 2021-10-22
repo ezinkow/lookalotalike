@@ -6,15 +6,16 @@ import Minus from '../images/Minus.png'
 
 export default function Uploads() {
     const [lookAlikes, setLookAlikes] = useState([])
-    const [plus, setPlus] = useState('')
+    const [score, setScore] = useState(4)
+    // const [score, setScore] = useState('')
 
     // Fetch all entries in lookalike table
     useEffect(() => {
         async function fetchLookALikes() {
             try {
-                const response = await axios('api/lookalike')
-                setLookAlikes(response.data)
-                console.log(response.data)
+                const lookAlikesResponse = await axios('api/lookalike')
+                setLookAlikes(lookAlikesResponse.data)
+                console.log(lookAlikesResponse.data)
             } catch (e) {
                 console.log(e)
             }
@@ -27,23 +28,29 @@ export default function Uploads() {
         console.log(lookAlikes)
     })
 
-    // function handlePlusClick(event) {
-    //     setPlusSign(event.target.value)
-    //get current score
-    //set current score as const
-    //add 1 to current score
-    //set state as new score
-    // }
+    async function handlePlusClick(id) {
+        let thisObj = lookAlikes.find(thisId => thisId.id === id)
+        console.log('this obj', thisObj)
+        //set current score as const
+        let currentScore = Number(thisObj.score)
+        //add 1 to current score
+        currentScore++
+        setScore(currentScore)
+        //update db
+        await axios.put(`api/lookalike/${id}`, {
+            score
+        })
+    }
 
     return (
         <>
             {lookAlikes.length > 0 ? lookAlikes.map(lookalike =>
                 <div className='container'>
                     <div className="row">
-                        <div className="col-3">
+                        <div className="col-2">
                             <img src={lookalike.url1} />
                         </div>
-                        <div className="col-3">
+                        <div className="col-2">
                             <img src={lookalike.url2} />
                         </div>
                     </div>
@@ -54,7 +61,7 @@ export default function Uploads() {
                     </div>
                     <div className='row'>
                         <div className='col-3 votes'>
-                            {/* <img src={Plus} onClick={handlePlusClick}/> */}
+                            <img src={Plus} className='sign' onClick={() => { handlePlusClick(lookalike.id) }} />
                         </div>
                         <div className='col-3 votes'>
                             {/* <img src={Minus} onClick={handleMinusClick}/> */}
@@ -66,7 +73,8 @@ export default function Uploads() {
                         </div>
                     </div>
                 </div>
-            ) : ""}
+            ) : ""
+            }
         </>
     )
 }
